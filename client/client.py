@@ -3,7 +3,7 @@
 # Imports the python system library.
 import urllib.request
 
-# The req variable contains the request on 'http://localhost:1234/'.
+# The req variable contains the request on 'http://localhost:3000/'.
 req = urllib.request.urlopen("http://localhost:3000/")
 
 # 'encodedContent' correspond to the server response encoded ('index.html').
