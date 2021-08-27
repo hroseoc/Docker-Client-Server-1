@@ -4,7 +4,7 @@
 import urllib.request
 
 # The req variable contains the request on 'http://localhost:1234/'.
-req = urllib.request.urlopen("http://localhost:1234/")
+req = urllib.request.urlopen("http://localhost:3000/")
 
 # 'encodedContent' correspond to the server response encoded ('index.html').
 # 'decodedContent' correspond to the server response decoded (i.e., what we want to display).
