@@ -1,8 +1,8 @@
 version: "3"
 
+# There are 2 services (i.e., containers): the client and the server. 
 services:
 
-# There are 2 services (i.e., containers): the client and the server. 
   server:
 
     build: server/
@@ -11,7 +11,8 @@ services:
     ports:
       - 3000:3000
 
-   client:
+  client:
+
     build: client/
     #The command to execute "python ./client.py" (so, once image is created). 
     command: python ./client.py
