@@ -21,6 +21,15 @@ services:
     ports:
       - 8001:8001    
 
+  server3:
+
+    build: server3/
+    #The command to execute "python ./server.py" (so, once image is created)
+
+    command: python ./server3.py
+    ports:
+      - 4000:4000
+
   client:
 
     build: client/
@@ -35,7 +44,7 @@ services:
     #Forces the 'client' container to wait until the 'server' container is ready.
     depends_on:
       - server1
-      - server2
+      - server2 # remove this!
 
 
 
