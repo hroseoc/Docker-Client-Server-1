@@ -1,24 +1,43 @@
 version: "3"
 
-# There are 2 services (i.e., containers): the client and the server. 
+# There are 6 services (i.e., containers): the client and the server. 
 services:
 
-  server:
+  server1:
 
-    build: server/
+    build: server1/
+    
     #The command to execute "python ./server.py" (so, once image is created)
-    command: python ./server.py
+    command: python ./server1.py
     ports:
       - 3000:3000
+
+  server2:
+
+    build: server2/
+    
+    #The command to execute "python ./server.py" (so, once image is created)
+    command: python ./server2.py
+    ports:
+      - 8001:8001    
 
   client:
 
     build: client/
-    #The command to execute "python ./client.py" (so, once image is created). 
+    
+    #Executes "python ./client.py" (so, once image is created). 
     command: python ./client.py
+    
     #Defines the network type 
     #So the container can access to the 'localhost' of the computer.
     network_mode: host
+    
     #Forces the 'client' container to wait until the 'server' container is ready.
     depends_on:
-      - server
+      - server1
+      - server2
+
+
+
+
+  
