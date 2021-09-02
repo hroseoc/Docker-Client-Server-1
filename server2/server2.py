@@ -16,7 +16,7 @@ with socketserver.TCPServer(("", 8001), handle) as httpd:
     # This instruction will keep the server running, waiting for requests from the client.
     httpd.serve_forever()
 
-# The req variable contains the request on 'http://localhost:3000/'.
+# The req variable contains the request on 'http://localhost:8001/'.
 req = urllib.request.urlopen("http://localhost:8001/")
 
 # 'encodedContent' correspond to the server response encoded ('index.html').

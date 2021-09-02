@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Imports the python system library.
+import urllib.request
+
 # Import of python system libraries (these libraries will be used to create the web server)
 import http.server
 import socketserver 
@@ -13,3 +16,16 @@ with socketserver.TCPServer(("", 3000), handle) as httpd:
     # This instruction will keep the server running, waiting for requests from the client.
     httpd.serve_forever()
 
+# The req variable contains the request on 'http://localhost:3000/'.
+req = urllib.request.urlopen("http://localhost:3000/")
+
+# 'encodedContent' correspond to the server response encoded ('index.html').
+# 'decodedContent' correspond to the server response decoded (i.e., what we want to display).
+encodedContent = req.read()
+decodedContent = encodedContent.decode("utf8")
+
+# Display the server file: 'index.html'.
+print(decodedContent)
+
+# Close the server connection.
+req.close()
